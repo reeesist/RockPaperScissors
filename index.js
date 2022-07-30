@@ -8,35 +8,40 @@ function getComputerChoice() {
 playerCount = 0
 computerCount = 0
 
+
+
 function playRound(playerChoice, computerSelection) {
-    if (playerChoice == computerSelection)
-    return "It's a tie"
-    else if (playerChoice == "rock" && computerSelection == "scissors")
-    return "You won, rock beats scissors"
-    else if (playerChoice == "scissors" && computerSelection == "paper")
-    return "You won, scissors beats paper"
-    else if (playerChoice == "paper" && computerSelection == "rock")
-    return "You won, paper beats rock"
-    else if (playerChoice == "rock" && computerSelection == "paper")
-    return "You lost, paper beats rock"
-    else if (playerChoice == "scissors" && computerSelection == "rock")
-    return "You lost, rock beats scissors"
-    else if (playerChoice == "paper" && computerSelection == "scissors")
-    return "You lost, scissors beats paper"
-    else
-     return "O.O"
+    playerChoice = prompt("Start the game by picking among 'Rock, Paper, Scissors'").toLowerCase();
+    computerSelection = getComputerChoice();
+    result = ""
+    if (playerChoice == computerSelection) {
+    return result = "It's a tie"
+    } else if (playerChoice == "rock" && computerSelection == "scissors" ||
+                playerChoice == "scissors" && computerSelection == "paper" ||
+                playerChoice == "paper" && computerSelection == "rock") {
+                    playerCount += 1
+                   return result = `You won, ${playerChoice} beats ${computerSelection}`
+                }
+                else {
+                    computerCount += 1
+                   return result = `You lost ${computerSelection} beats ${playerChoice}`
+                }
 }
 
-const playerChoice = prompt("Start the game by picking among 'Rock, Paper, Scissors'").toLowerCase();
-const computerSelection = getComputerChoice();
-console.log(playRound(playerChoice, computerSelection))
+function whoWon() {
+    result = ""
+    if (playerCount > computerCount) {
+    return result = "You won"
+    } else if (computerCount > playerCount) {
+      return result = "You lost"
+    } else 
+    return result = "It's a tie"
+}
 
 function game() {
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < 5; i++) {
     playRound()
+    console.log(playerCount)
+    console.log(computerCount) }
+    console.log(whoWon())
 }
-
-
-// Funkcija game
-// 5 kartus playRound paleisti
-// kas daugiau pergaliu turi paskelbti nugaletoju
