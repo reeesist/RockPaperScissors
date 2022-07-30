@@ -5,12 +5,10 @@ function getComputerChoice() {
     
 }
 
-// playerChoice = ""
-
+playerCount = 0
+computerCount = 0
 
 function playRound(playerChoice, computerSelection) {
-    // computerSelection = getComputerChoice()
-    playerChoice = playerChoice.toLowerCase()
     if (playerChoice == computerSelection)
     return "It's a tie"
     else if (playerChoice == "rock" && computerSelection == "scissors")
@@ -29,10 +27,16 @@ function playRound(playerChoice, computerSelection) {
      return "O.O"
 }
 
-const playerChoice = "rock";
+const playerChoice = prompt("Start the game by picking among 'Rock, Paper, Scissors'").toLowerCase();
 const computerSelection = getComputerChoice();
 console.log(playRound(playerChoice, computerSelection))
 
 function game() {
-
+    for (i = 0; i < 5; i++)
+    playRound()
 }
+
+
+// Funkcija game
+// 5 kartus playRound paleisti
+// kas daugiau pergaliu turi paskelbti nugaletoju
